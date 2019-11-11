@@ -19,8 +19,10 @@ class MainContent extends Component {
     this.imageMouseOver = this.imageMouseOver.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
- 
+
   // render is a reserved name for React
+  /* Any time React notice that something changed, like state or props, 
+    what may affect what React is supposed to display, it runs the render method ones again.*/
   render () {
     let todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
     return (
