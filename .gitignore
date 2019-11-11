@@ -1,5 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.idea/
+.vscode/
+*.tgz
+.npm/
+yarn.lock
+/.changelog
+template/src/__tests__/__snapshots__/
+lerna-debug.log
+
 # dependencies
 /node_modules
 /.pnp

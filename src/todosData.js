@@ -16,7 +16,7 @@ const todosData = [
         text: "Clean gecko tank",
         cost: 3.00,
         completed: false
-    },
+    }/*,
     {
         id: 4,
         text: "Mow lawn",
@@ -28,7 +28,7 @@ const todosData = [
         text: "Catch up on Arrested Development",
         cost: 6.00,
         completed: false
-    }
+    }*/
 ]
 
 
