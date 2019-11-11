@@ -20,6 +20,8 @@ class TodoItem extends Component {
     */
    // it is deprecated
    // in version 17 it will be completely removed
+   // the other two that are going to be removed are: componentWillMount and componentWillUpdate
+   // in these place we will receive two new methods: getDerivedStateFromProps
    UNSAFE_componentWillReceiveProps(nextProps){
         //example
 //        if (nextProps.whatever !== this.props.whatever){
@@ -31,6 +33,7 @@ class TodoItem extends Component {
     // it gives the possibility to make the application more performed
     shouldComponentUpdate(nextProps, nextState) {
         // return true if want it to update, or false if not
+        return true;
     }
 
     /* Before the component unmount from screen, or disappears all together.
@@ -38,6 +41,16 @@ class TodoItem extends Component {
     in your application or DOM.*/
     componentWillUnmount() {
 
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        // return the new, updated state based upon the propos
+        //but it is misused because of bugs and other things.
+        //For more information take a look at Google: you probably dont need derived state
+    }
+
+    getSnapshotBeforeUpdate() {
+        // create a backup of the current way things are
     }
  
     render() {

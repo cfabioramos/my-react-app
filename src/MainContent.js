@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TodoItem from './TodoItem'
 import todosData from './todosData';
+import Conditional from './Conditional'
 
 // Suported events on React
 // https://reactjs.org/docs/events.html#supported-events
@@ -11,13 +12,25 @@ class MainContent extends Component {
     this.state = {
       imageCaption: "Image caption",
       count : 0,
-      todos: todosData
+      todos: todosData,
+      isLoading: true
     }
     
     //bind method
     this.handleClick = this.handleClick.bind(this)
     this.imageMouseOver = this.imageMouseOver.bind(this)
     this.handleChange = this.handleChange.bind(this)
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        imageCaption: "Image caption",
+        count : 0,
+        todos: todosData,
+        isLoading: false
+      })
+    })
   }
 
   // render is a reserved name for React
@@ -32,6 +45,8 @@ class MainContent extends Component {
         {todoItems}
         <br />
         <button onClick={this.handleClick}>Clique</button>
+        <br />
+        <Conditional isLoading={this.state.isLoading} />
       </div>
     );
   }
