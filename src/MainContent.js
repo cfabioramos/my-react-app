@@ -22,6 +22,7 @@ class MainContent extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  //Faking a API call that will wait 1 and a half seconds before runing the code provided.
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -30,7 +31,7 @@ class MainContent extends Component {
         todos: todosData,
         isLoading: false
       })
-    })
+    }, 1500)
   }
 
   // render is a reserved name for React

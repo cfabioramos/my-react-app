@@ -49,9 +49,9 @@ class TodoItem extends Component {
         //For more information take a look at Google: you probably dont need derived state
     }
 
-    getSnapshotBeforeUpdate() {
+//    getSnapshotBeforeUpdate() {
         // create a backup of the current way things are
-    }
+//    }
  
     render() {
         if (this.props.item.completed)
