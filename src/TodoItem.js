@@ -59,12 +59,20 @@ class TodoItem extends Component {
         else 
             this.state.currence = "R$ "
 
+        const completedStyle = {
+            fontStyle: "italic",
+            color: "#cdcdcd",
+            textDecoration: "line-through"
+        }
+
         return (
             <div>
                 <input type="checkbox" 
                     checked={this.props.item.completed} 
                     onChange={() => this.props.handleChange(this.props.item.id)}/>
-                <p>{this.props.item.text + " - " + this.state.currence + this.props.item.cost}</p>
+                <p style={this.props.item.completed ? completedStyle : null}>
+                    {this.props.item.text + " - " + this.state.currence + this.props.item.cost}
+                </p>
             </div>
         );
     }

@@ -22,8 +22,8 @@ class MainContent extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  //Faking a API call that will wait 1 and a half seconds before runing the code provided.
   componentDidMount() {
+    //Faking a API call that will wait 1 and a half seconds before runing the code provided.
     setTimeout(() => {
       this.setState({
         imageCaption: "Image caption",
@@ -79,7 +79,6 @@ class MainContent extends Component {
         count : 0,
         todos: updatedTodos
       }
-
     })
   }
 
