@@ -10,7 +10,7 @@ class MainContent extends Component {
   constructor() {
     super()
     this.state = {
-      imageCaption: "Image caption",
+      imageCaption: "Loading...",
       count : 0,
       todos: todosData,
       isLoading: true
@@ -23,14 +23,17 @@ class MainContent extends Component {
   }
 
   componentDidMount() {
-    //Faking a API call that will wait 1 and a half seconds before runing the code provided.
+    this.setState({isLoading: true})
+    // Faking a time lapse for the API call.
     setTimeout(() => {
-      this.setState({
-        imageCaption: "Image caption",
-        count : 0,
-        todos: todosData,
-        isLoading: false
-      })
+      fetch("https://swapi.co/api/people/1/")
+        .then(response => response.json())
+        .then(data => this.setState({
+          imageCaption: data.name,
+          count : 0,
+          todos: todosData,
+          isLoading: false
+        }))
     }, 1500)
   }
 
@@ -41,12 +44,11 @@ class MainContent extends Component {
     let todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
     return (
       <div>
-        <h3>{this.state.imageCaption} - {this.state.count}</h3>
-        <img src="https://www.fillmurray.com/200/100" alt="Fill Murray" onMouseOver={this.imageMouseOver} />
+        <h3>{this.state.imageCaption} - {this.state.count} &nbsp;
+          <button onClick={this.handleClick}>Clique</button></h3>
+        <img src="https://www.fillmurray.com/200/100" 
+          alt="Fill Murray" onMouseOver={this.imageMouseOver} />
         {todoItems}
-        <br />
-        <button onClick={this.handleClick}>Clique</button>
-        <br />
         <Conditional isLoading={this.state.isLoading} />
       </div>
     );

@@ -11,7 +11,7 @@ class TodoItem extends Component {
 
     // Life cycle method that essentially says "you are just born"
     componentDidMount() {
-        console.log('Nasceeeeeeu')
+        console.log("Nasceeeeeeu...")
     }
 
     /*Life cycle method, that runs when someone gives you a gift.
